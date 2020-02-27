@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2808E3E724062C1700947E79 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808E3E624062C1700947E79 /* ImagePicker.swift */; };
 		2808E3E924062C5000947E79 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808E3E824062C5000947E79 /* EventViewController.swift */; };
+		281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */; };
 		2879436C2404BB880039F907 /* LoginUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436B2404BB880039F907 /* LoginUI.swift */; };
 		2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436D2404DCF00039F907 /* LoginUI2.swift */; };
 		289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05D72403F8D200DB1C88 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		2808E3E624062C1700947E79 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2808E3E824062C5000947E79 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temptestViewController.swift; sourceTree = "<group>"; };
 		2879436B2404BB880039F907 /* LoginUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI.swift; sourceTree = "<group>"; };
 		2879436D2404DCF00039F907 /* LoginUI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI2.swift; sourceTree = "<group>"; };
 		289D05D42403F8D200DB1C88 /* NIBM-Event-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM-Event-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +201,7 @@
 			children = (
 				289D060B2403FE4600DB1C88 /* LoginViewController.swift */,
 				2808E3E824062C5000947E79 /* EventViewController.swift */,
+				281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */,
 				2808E3E724062C1700947E79 /* ImagePicker.swift in Sources */,
 				289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */,
+				281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */,
 				2808E3E924062C5000947E79 /* EventViewController.swift in Sources */,
 				289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */,
 				289D05E02403F8D200DB1C88 /* NIBM_Event_App.xcdatamodeld in Sources */,
