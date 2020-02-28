@@ -474,57 +474,56 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEO-Oa-r19">
-                                            <rect key="frame" x="21" y="203" width="30" height="30"/>
-                                            <state key="normal" title="GO"/>
+                                            <rect key="frame" x="21" y="203" width="160" height="30"/>
+                                            <state key="normal" title="CANCEL ATTENDANCE"/>
                                             <connections>
                                                 <action selector="changeAttendanceAction:" destination="qOU-6F-3OH" eventType="touchUpInside" id="JiB-Wn-9na"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEQ-fs-wYn">
-                                            <rect key="frame" x="177" y="203" width="127" height="30"/>
-                                            <state key="normal" title="VIEW COMMENTS"/>
-                                            <connections>
-                                                <action selector="viewCommentsAction:" destination="qOU-6F-3OH" eventType="touchUpInside" id="Jia-FC-lzI"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg1-C1-tRG">
-                                            <rect key="frame" x="21" y="241" width="158" height="30"/>
+                                            <rect key="frame" x="21" y="267" width="158" height="30"/>
                                             <state key="normal" title="CONTACT ORGANIZER"/>
                                             <connections>
                                                 <action selector="changeAttendanceAction:" destination="qOU-6F-3OH" eventType="touchUpInside" id="aXN-gP-Kdj"/>
                                                 <action selector="contactOrganizerAction:" destination="qOU-6F-3OH" eventType="touchUpInside" id="ZC5-BJ-THy"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATTENDING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmm-RU-6wV">
-                                            <rect key="frame" x="59" y="211" width="74" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FROM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIy-GK-qfj">
                                             <rect key="frame" x="21" y="145" width="48" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATTENDING:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmm-RU-6wV">
+                                            <rect key="frame" x="229" y="210" width="86" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK FOR COMMENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-Ut-2TO">
+                                            <rect key="frame" x="21" y="241" width="166" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="uEO-Oa-r19" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="BYt-W9-Pqn"/>
+                                        <constraint firstAttribute="trailing" secondItem="zmm-RU-6wV" secondAttribute="trailing" constant="5" id="4KB-SX-hdG"/>
+                                        <constraint firstItem="hg1-C1-tRG" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="4bg-xY-DPJ"/>
+                                        <constraint firstItem="uEO-Oa-r19" firstAttribute="top" secondItem="MYu-ws-3aX" secondAttribute="bottom" constant="8" id="5d3-08-LSx"/>
                                         <constraint firstItem="DIy-GK-qfj" firstAttribute="top" secondItem="jqb-7S-git" secondAttribute="bottom" constant="8" id="C34-59-tqB"/>
                                         <constraint firstItem="JNb-3F-21G" firstAttribute="top" secondItem="7oI-lh-0Rx" secondAttribute="bottom" constant="7" id="FZA-fw-JGS"/>
-                                        <constraint firstItem="hg1-C1-tRG" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="QHE-m9-OLe"/>
+                                        <constraint firstItem="uEO-Oa-r19" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="LJd-zW-2G2"/>
+                                        <constraint firstItem="zmm-RU-6wV" firstAttribute="top" secondItem="H5A-nV-ma1" secondAttribute="top" constant="210" id="Qgw-VL-g4h"/>
                                         <constraint firstItem="DIy-GK-qfj" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="SgP-VZ-0mc"/>
-                                        <constraint firstItem="hg1-C1-tRG" firstAttribute="top" secondItem="uEO-Oa-r19" secondAttribute="bottom" constant="8" id="Tgm-Xt-XJ6"/>
                                         <constraint firstItem="MYu-ws-3aX" firstAttribute="top" secondItem="DIy-GK-qfj" secondAttribute="bottom" constant="8" id="WwU-hy-u5G"/>
-                                        <constraint firstItem="GEQ-fs-wYn" firstAttribute="top" secondItem="1Ec-uS-pkQ" secondAttribute="bottom" constant="147" id="a1x-oT-fQk"/>
                                         <constraint firstItem="JNb-3F-21G" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="bfw-Lf-0Xq"/>
                                         <constraint firstItem="jqb-7S-git" firstAttribute="top" secondItem="JNb-3F-21G" secondAttribute="bottom" constant="8" id="eCH-1d-0WC"/>
-                                        <constraint firstItem="zmm-RU-6wV" firstAttribute="leading" secondItem="uEO-Oa-r19" secondAttribute="trailing" constant="8" id="hLJ-Uz-b2Q"/>
                                         <constraint firstItem="1Ec-uS-pkQ" firstAttribute="leading" secondItem="7oI-lh-0Rx" secondAttribute="trailing" constant="23" id="k4L-ph-MNq"/>
-                                        <constraint firstItem="uEO-Oa-r19" firstAttribute="top" secondItem="MYu-ws-3aX" secondAttribute="bottom" constant="8" id="kn1-mq-dZ5"/>
-                                        <constraint firstItem="zmm-RU-6wV" firstAttribute="top" secondItem="MYu-ws-3aX" secondAttribute="bottom" constant="16" id="lPT-vf-3rf"/>
+                                        <constraint firstItem="TFy-Ut-2TO" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="kee-ZZ-RUM"/>
+                                        <constraint firstItem="hg1-C1-tRG" firstAttribute="top" secondItem="TFy-Ut-2TO" secondAttribute="bottom" constant="8" id="oBx-3I-T79"/>
                                         <constraint firstItem="jqb-7S-git" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="oE9-x5-3lr"/>
-                                        <constraint firstItem="GEQ-fs-wYn" firstAttribute="leading" secondItem="zmm-RU-6wV" secondAttribute="trailing" constant="44" id="rmO-4L-iED"/>
+                                        <constraint firstItem="TFy-Ut-2TO" firstAttribute="top" secondItem="uEO-Oa-r19" secondAttribute="bottom" constant="8" id="qmf-tf-lo1"/>
                                         <constraint firstItem="1Ec-uS-pkQ" firstAttribute="top" secondItem="H5A-nV-ma1" secondAttribute="topMargin" constant="24" id="vbK-uZ-AfD"/>
                                         <constraint firstItem="MYu-ws-3aX" firstAttribute="leading" secondItem="H5A-nV-ma1" secondAttribute="leadingMargin" constant="5" id="wJ6-Sk-sdt"/>
                                         <constraint firstItem="7oI-lh-0Rx" firstAttribute="top" secondItem="H5A-nV-ma1" secondAttribute="topMargin" constant="1" id="xUL-gv-Npa"/>
@@ -536,6 +535,7 @@
                                     <outlet property="attendance_number_label" destination="zmm-RU-6wV" id="Dpy-rk-eko"/>
                                     <outlet property="date_label" destination="jqb-7S-git" id="vSt-yi-Qza"/>
                                     <outlet property="description_label" destination="JNb-3F-21G" id="Xbb-uw-J4m"/>
+                                    <outlet property="goButton" destination="uEO-Oa-r19" id="P90-8Z-QhT"/>
                                     <outlet property="timerange_label" destination="DIy-GK-qfj" id="44i-g6-s5B"/>
                                     <outlet property="title_label" destination="1Ec-uS-pkQ" id="itu-tJ-u8q"/>
                                     <segue destination="L1b-gy-vpi" kind="show" identifier="ShowCommentSegue" id="Jcd-1Y-XxK"/>
@@ -551,7 +551,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e21-Ve-aEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5434" y="-305"/>
+            <point key="canvasLocation" x="-2511" y="-2355"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="V5p-3I-geT">

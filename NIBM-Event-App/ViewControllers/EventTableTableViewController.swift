@@ -24,6 +24,10 @@ class EventTableTableViewController: UITableViewController {
     var  AttendanceCount=[String]()
     var IDOfEvent=[String]()
     var userId:String?
+    var listOfEvents=[String]()
+    
+    
+
     
     
     
@@ -61,8 +65,16 @@ class EventTableTableViewController: UITableViewController {
         cell.description_label.text=Descriptions[row]
         cell.timerange_label.text=Time[row]
         cell.date_label.text=Date[row]
-        cell.attendance_number_label.text=AttendanceCount[row]
+        cell.attendance_number_label.text="ATTENDANCE:"+AttendanceCount[row]
         cell.name1=IDOfEvent[row]
+        if listOfEvents.contains(IDOfEvent[row])
+        {cell.goButton.setTitle("CANCEL ATENDANCE", for: .normal)
+            cell.attendingEvent=true
+        }
+        else{
+            cell.goButton.setTitle("CONFIRM ATTENDANCE", for: .normal)
+            cell.attendingEvent=false
+        }
         
         
      //   cell.name1=attractionNames[row]
@@ -143,6 +155,57 @@ class EventTableTableViewController: UITableViewController {
         print(self.tempTitle[0])
          self.tableView.reloadData()
         })
+        
+        let user1 = Auth.auth().currentUser
+        if let user1=user1{
+           let userId1=user1.uid
+            let userListOfAttendingEvents=ref1.child("Users/\(userId1)")
+                print("blocl1 @--------------------------------------------------------------------")
+            userListOfAttendingEvents.observeSingleEvent(of: .value, with: { snapshot in
+                print("block 22-@--------------------------------------------------------------------")
+                for child in snapshot.children {
+                    print("block 33-@--------------------------------------------------------------------")
+                    let snap = child as! DataSnapshot
+                    print("block 44-@--------------------------------------------------------------------")
+                    
+                    let key1 = snap.key
+                    let value = snap.value
+                    print("Eventtttttttttttttttttttttttttttttttttttt")
+                    self.listOfEvents.append(key1)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                print("tyu---------------------------------------------------------------------")
+                print("---------------------------------------------------------------------")
+               // print(self.tempTitle[0])
+                self.tableView.reloadData()
+            })
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         

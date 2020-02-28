@@ -21,8 +21,11 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var timerange_label: UILabel!
     
     @IBOutlet weak var attendance_number_label: UILabel!
+    
+    @IBOutlet weak var goButton: UIButton!
     var name1:String?
     var idOfEvent:Int?
+    var attendingEvent:Bool?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,69 +40,91 @@ class EventTableViewCell: UITableViewCell {
     
 
     @IBAction func changeAttendanceAction(_ sender: Any) {
+        guard let attendingEvent=attendingEvent else
+        {return}
         let user1 = Auth.auth().currentUser
         guard let EventId=name1 else
         {return }
         
-        if let user1=user1 {
-            
-            let userId=user1.uid
-             let ref = Database.database().reference()
-            ref.child("AttedndanceList/\(EventId)/\(userId)").setValue("")
-            
-            
-            ref.child("Events/\(EventId)").observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
+        if(attendingEvent)
+        {
+            if let user1=user1 {
+                let userId=user1.uid
+                let ref = Database.database().reference()
                 
-                if let snapDict = snapshot.value as? [String:AnyObject] {
+                let usersattendacelistreference=ref.child("Users/\(userId)").child(EventId)
+                usersattendacelistreference.removeValue()
+                
+                let Eventattendacelist=ref.child("AttedndanceList/\(EventId)").child(userId)
+               Eventattendacelist.removeValue()
+                
+                ref.child("Events/\(EventId)").observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
                     
-                    let attendancecount=snapDict["People_Attending"] as! Int
-                    
-//                    guard var attendancecountasInteger=Int(attendacecount) else
-//                    {return}
-                      print("Attendance count@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-                    print(String(attendancecount))
-                         var attendancecount1=attendancecount+1
+                    if let snapDict = snapshot.value as? [String:AnyObject] {
+                        
+                        let attendancecount=snapDict["People_Attending"] as! Int
+                        print("Attendance count@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                        print(String(attendancecount))
+                        var attendancecount1=attendancecount-1
                         ref.child("Events/\(EventId)/People_Attending").setValue(attendancecount1)
-                        self.attendance_number_label.text=String(attendancecount1)
+                        self.attendance_number_label.text="ATTENDANCE:"+String(attendancecount1)
+                        self.goButton.setTitle("CONFIRM ATTENDANCE", for: .normal)
+                        self.attendingEvent=false
                         
-                        
-                        
-                        
-                        
+                    }
                     
+                    // ...
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+                
+              
+
+                
+            }
+        }
+            
+        else{
+            if let user1=user1 {
+                
+                let userId=user1.uid
+                let ref = Database.database().reference()
+                ref.child("AttedndanceList/\(EventId)/\(userId)").setValue("")
+                ref.child("Users/\(userId)/\(EventId)").setValue("")
+                ref.child("Events/\(EventId)").observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    
+                    if let snapDict = snapshot.value as? [String:AnyObject] {
+                        
+                        let attendancecount=snapDict["People_Attending"] as! Int
+                        print("Attendance count@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                        print(String(attendancecount))
+                        var attendancecount1=attendancecount+1
+                        ref.child("Events/\(EventId)/People_Attending").setValue(attendancecount1)
+                        self.attendance_number_label.text="ATTENDANCE:"+String(attendancecount1)
+                         self.goButton.setTitle("CANCEL ATTENDANCE", for: .normal)
+                        self.attendingEvent=true
+                        
+                    }
+                    
+                    // ...
+                }) { (error) in
+                    print(error.localizedDescription)
                 }
                 
                 
-                //                for child in snapDict{
-                //
-                //                    let shotKey = snapshot.children.nextObject() as! DataSnapshot
-                //
-                //                    if let name = child.value as? [String:AnyObject]{
-                //
-                //                        var _name = name["locationName"]
-                //
-                //                    }
-                //
-                //                }
                 
                 
                 
                 
-                
-                
-                
-                // ...
-            }) { (error) in
-                print(error.localizedDescription)
             }
             
-                
-            
-            
-            
-            
         }
+        
+        
+        
+        
         
         
     }
