@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+
 class temptestViewController: UIViewController {
 
     @IBOutlet weak var label1: UILabel!
@@ -29,35 +30,13 @@ class temptestViewController: UIViewController {
             // Get user value
             if let snapDict = snapshot.value as? [String:AnyObject] {
                 if let name=snapDict["tel"] as? [String:Any]{
-                    if let name2=name["wifi"] as? [String:Any]{
-                        if let name3=name2["idad"] as? [String:Any]{
-                            if let name4=name3["name"] as? String{ self.label1.text=name4
-                            }
-                        }
-                    }
+                    var k=name
+                  
                 }
             }
             
             
-            //                for child in snapDict{
-            //
-            //                    let shotKey = snapshot.children.nextObject() as! DataSnapshot
-            //
-            //                    if let name = child.value as? [String:AnyObject]{
-            //
-            //                        var _name = name["locationName"]
-            //
-            //                    }
-            //
-            //                }
             
-            
-            
-            
-            
-            
-            
-            // ...
         }) { (error) in
             print(error.localizedDescription)
         }

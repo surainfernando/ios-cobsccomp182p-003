@@ -19,6 +19,7 @@ target 'NIBM-Event-App' do
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
 
 end

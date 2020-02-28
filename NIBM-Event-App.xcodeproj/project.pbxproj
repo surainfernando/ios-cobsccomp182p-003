@@ -22,6 +22,8 @@
 		289D05FB2403F8D200DB1C88 /* NIBM_Event_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05FA2403F8D200DB1C88 /* NIBM_Event_AppUITests.swift */; };
 		289D06092403F8E600DB1C88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 289D06082403F8E600DB1C88 /* GoogleService-Info.plist */; };
 		289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D060B2403FE4600DB1C88 /* LoginViewController.swift */; };
+		28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */; };
+		28F2143F2408B8C7001ABD24 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */; };
 		846E1EB8E42AC66D56931230 /* Pods_NIBM_Event_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70DCA9DC1A1E10F7FCF8330 /* Pods_NIBM_Event_AppUITests.framework */; };
 		B6168A277500DB387C25F97B /* Pods_NIBM_Event_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363B09519DBD6D5ED578D172 /* Pods_NIBM_Event_App.framework */; };
 		F62D80BEEB393C1BA6519D3E /* Pods_NIBM_Event_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85B39A5CE18447E2C531AF5 /* Pods_NIBM_Event_AppTests.framework */; };
@@ -66,6 +68,8 @@
 		289D05FC2403F8D200DB1C88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289D06082403F8E600DB1C88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		289D060B2403FE4600DB1C88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableTableViewController.swift; sourceTree = "<group>"; };
+		28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		363B09519DBD6D5ED578D172 /* Pods_NIBM_Event_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Event_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB4AD78427A3B6B4DA5BB17 /* Pods-NIBM-Event-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM-Event-AppTests.release.xcconfig"; path = "Target Support Files/Pods-NIBM-Event-AppTests/Pods-NIBM-Event-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F272F04F62A91F809B7173D /* Pods-NIBM-Event-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM-Event-App.release.xcconfig"; path = "Target Support Files/Pods-NIBM-Event-App/Pods-NIBM-Event-App.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				289D060B2403FE4600DB1C88 /* LoginViewController.swift */,
 				2808E3E824062C5000947E79 /* EventViewController.swift */,
 				281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */,
+				28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */,
+				28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -452,10 +458,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */,
+				28F2143F2408B8C7001ABD24 /* EventTableViewCell.swift in Sources */,
 				2879436C2404BB880039F907 /* LoginUI.swift in Sources */,
 				289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */,
 				2808E3E724062C1700947E79 /* ImagePicker.swift in Sources */,
 				289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */,
+				28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */,
 				281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */,
 				2808E3E924062C5000947E79 /* EventViewController.swift in Sources */,
 				289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */,

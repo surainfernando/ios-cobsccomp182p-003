@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 
 class EventViewController: UIViewController {
@@ -184,7 +185,12 @@ class EventViewController: UIViewController {
         let endtime=timeFormatter.string(from: EndTimePicker.date)
         
         
-        let imageString=getImageString()
+        let imageString:NSString=getImageString()
+        guard let  image = PhotoImageView.image else{
+            return
+        }
+         var jpeg  = NSData()
+        jpeg = image.jpegData(compressionQuality:1.0) as! NSData
         
         let user1 = Auth.auth().currentUser
         if let user1=user1 {
@@ -192,10 +198,13 @@ class EventViewController: UIViewController {
             let uid = user1.uid
             print(uid)
             var ref = Database.database().reference()
-            ref.child("Events").child(uid).setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":imageString,"People_Attending":0])
+//            ref.child("Events").child(uid).setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":jpeg,"People_Attending":0])
+            
+          
+            ref.child("Events").childByAutoId().setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":"","People_Attending":0])
             
             
-            
+           
             // ...
         }
         
@@ -203,7 +212,9 @@ class EventViewController: UIViewController {
     
     
     
-    func getImageString()->String{
+    
+    
+    func getImageString()->NSString{
         guard let  image = PhotoImageView.image else{
                      return ""
                    }
@@ -212,7 +223,8 @@ class EventViewController: UIViewController {
          
             }
         let strBase64 = jpegData.base64EncodedString(options: .lineLength64Characters)
-        return strBase64
+        let datastring:NSString = NSString(data: jpegData, encoding: String.Encoding.utf8.rawValue) ?? ""
+        return datastring
         
         
     }
