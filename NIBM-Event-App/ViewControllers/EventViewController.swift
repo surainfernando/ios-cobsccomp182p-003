@@ -201,7 +201,7 @@ class EventViewController: UIViewController {
 //            ref.child("Events").child(uid).setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":jpeg,"People_Attending":0])
             
           
-            ref.child("Events").childByAutoId().setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":"","People_Attending":0])
+            ref.child("Events").childByAutoId().setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":"","People_Attending":0,"EventCreator":uid])
             
             
            

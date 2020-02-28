@@ -26,9 +26,9 @@ class LoginViewController: UIViewController {
 
     @IBAction func LoginButtonAction(_ sender: Any) {
          segeueToHomeVIew()
-//        let emailtxt=EmailTextField.text ?? "<no_name>"
-//        let passwordtxt=PassWordTextField.text ?? "<no_name>"
-//        checkIfEmailPresent(emailadress: emailtxt, password: passwordtxt)
+        //let emailtxt=EmailTextField.text ?? "<no_name>"
+        //let passwordtxt=PassWordTextField.text ?? "<no_name>"
+        //checkIfEmailPresent(emailadress: emailtxt, password: passwordtxt)
         /*/ first this function checks if email exists .Then tne login function is called*/
     }
     

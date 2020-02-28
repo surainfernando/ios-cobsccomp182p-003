@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import Foundation
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class EventTableTableViewController: UITableViewController {
     var attractionImages=[String]()
     var attractionNames=[String]()
     var webAddresses=[String]()
+    var tempTitle=[String]()
+    var Descriptions=[String]()
+    var StartTime=[String]()
+    var EndTIme=[String]()
+    var Date=[String]()
+    var Location=[String]()
+    var  AttendanceCount=[Int]()
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getEventsFromFireBase()
 
         attractionNames=["Eifel","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car23232323","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof3444","car","Eifel"]
         webAddresses=["https://en.wikipedia.org/wiki/Eiffel_Tower","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Eiffel_Tower"]
@@ -30,15 +47,17 @@ class EventTableTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-      return attractionNames.count
+      return tempTitle.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         let row=indexPath.row
-        cell.Label1.text=attractionNames[row]
-        cell.ImageView1.image=UIImage(named:attractionImages[row])
+        self.tableView.rowHeight = 301
+        cell.title_label.text=tempTitle[row]
+     //   cell.name1=attractionNames[row]
+     //   cell.ImageView1.image=UIImage(named:attractionImages[row])
         
         
         // Configure the cell...
@@ -63,6 +82,43 @@ class EventTableTableViewController: UITableViewController {
                 } )
                 ] )
             return configuration
+    }
+    override func prepare(for segue:UIStoryboardSegue,sender:Any?) {
+        if(segue.identifier=="ShowCommentSegue")
+        {let CommentsViewController=segue.destination as!
+            CommentsViewController
+            let myindexPath=self.tableView.indexPathForSelectedRow!
+            let row=myindexPath.row
+           CommentsViewController.name=attractionNames[row]
+            
+        }
+    }
+    
+    func getEventsFromFireBase()
+    {
+        var ref1: DatabaseReference!
+        
+        ref1 = Database.database().reference()
+        //let myTopPostsQuery = ref.child("user-posts").queryOrdered(byChild: "starCount")
+        let allPlaces=ref1.child("Events")
+     allPlaces.observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let placeDict = snap.value as! [String: Any]
+                let title = placeDict["Title"] as! String
+                self.tempTitle.append(title)
+                
+             
+            }
+        print("---------------------------------------------------------------------")
+         print("---------------------------------------------------------------------")
+        print(self.tempTitle[0])
+         self.tableView.reloadData()
+        })
+        
+        
+        
+        
     }
     
 
