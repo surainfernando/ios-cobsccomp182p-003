@@ -18,11 +18,12 @@ class EventTableTableViewController: UITableViewController {
     var webAddresses=[String]()
     var tempTitle=[String]()
     var Descriptions=[String]()
-    var StartTime=[String]()
-    var EndTIme=[String]()
+    var Time=[String]()
     var Date=[String]()
     var Location=[String]()
-    var  AttendanceCount=[Int]()
+    var  AttendanceCount=[String]()
+    var IDOfEvent=[String]()
+    var userId:String?
     
     
     
@@ -31,6 +32,7 @@ class EventTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getEventsFromFireBase()
+        setUserId()
 
         attractionNames=["Eifel","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car23232323","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof3444","car","Eifel"]
         webAddresses=["https://en.wikipedia.org/wiki/Eiffel_Tower","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Eiffel_Tower"]
@@ -56,6 +58,13 @@ class EventTableTableViewController: UITableViewController {
         let row=indexPath.row
         self.tableView.rowHeight = 301
         cell.title_label.text=tempTitle[row]
+        cell.description_label.text=Descriptions[row]
+        cell.timerange_label.text=Time[row]
+        cell.date_label.text=Date[row]
+        cell.attendance_number_label.text=AttendanceCount[row]
+        cell.name1=IDOfEvent[row]
+        
+        
      //   cell.name1=attractionNames[row]
      //   cell.ImageView1.image=UIImage(named:attractionImages[row])
         
@@ -107,6 +116,25 @@ class EventTableTableViewController: UITableViewController {
                 let placeDict = snap.value as! [String: Any]
                 let title = placeDict["Title"] as! String
                 self.tempTitle.append(title)
+                let description=placeDict["Description"] as! String
+                self.Descriptions.append(description)
+                let date=placeDict["Date"] as! String
+                self.Date.append(date)
+                let starttime=placeDict["BeginTime"] as! String
+                let endtime=placeDict["EndTime"] as! String
+                let timestring="FROM \(starttime) TO \(endtime)"
+                self.Time.append(timestring)
+                let attendance=placeDict["People_Attending"] as!Int
+                self.AttendanceCount.append(String(attendance))
+                let id=snap.key as! String
+                self.IDOfEvent.append(id)
+                
+                
+                
+                
+                
+                
+                
                 
              
             }
@@ -119,6 +147,15 @@ class EventTableTableViewController: UITableViewController {
         
         
         
+    }
+    
+    func setUserId()
+    {
+        let user1 = Auth.auth().currentUser
+        if let user1=user1 {
+            userId=user1.uid
+            
+        }
     }
     
 
