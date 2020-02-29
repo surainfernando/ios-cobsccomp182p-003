@@ -11,8 +11,10 @@ import UIKit
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var labelComment: UILabel!
+    @IBOutlet weak var commentBodyLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        uiReconfiguration()
         // Initialization code
     }
 
@@ -21,5 +23,10 @@ class CommentCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func uiReconfiguration()
+    {
+        commentBodyLabel.sizeToFit()
+    }
+    
 
 }
