@@ -110,7 +110,8 @@ class EventTableTableViewController: UITableViewController {
             CommentsViewController
             let myindexPath=self.tableView.indexPathForSelectedRow!
             let row=myindexPath.row
-           CommentsViewController.name=attractionNames[row]
+            CommentsViewController.Event_ID=IDOfEvent[row]
+            
             
         }
     }
