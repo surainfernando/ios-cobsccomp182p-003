@@ -25,6 +25,9 @@ class EventTableTableViewController: UITableViewController {
     var IDOfEvent=[String]()
     var userId:String?
     var listOfEvents=[String]()
+    var organizerID=[String]()
+    var rowNumber:Int?
+    var isLoadingViewController = false
     
     
 
@@ -35,7 +38,9 @@ class EventTableTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var isLoadingViewController = false
         getEventsFromFireBase()
+        tableView.reloadData()
         setUserId()
 
         attractionNames=["Eifel","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car23232323","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof3444","car","Eifel"]
@@ -43,8 +48,18 @@ class EventTableTableViewController: UITableViewController {
         attractionImages=["360px-Tour_Eiffel_Wikimedia_Commons_(cropped).jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","360px-Tour_Eiffel_Wikimedia_Commons_(cropped).jpg"]
     }
     
+    
 
     // MARK: - Table view data source
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isLoadingViewController {
+            isLoadingViewController = false
+        } else {
+            getEventsFromFireBase()
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -67,7 +82,11 @@ class EventTableTableViewController: UITableViewController {
         cell.date_label.text=Date[row]
         cell.attendance_number_label.text="ATTENDANCE:"+AttendanceCount[row]
         cell.name1=IDOfEvent[row]
+        cell.organizerId=organizerID[row]
+        cell.ccontactCreatorButton.addTarget(self, action: #selector(viewCreatorInfo), for: .touchUpInside)
+        cell.rowNo=row
         if listOfEvents.contains(IDOfEvent[row])
+            
         {cell.goButton.setTitle("CANCEL ATENDANCE", for: .normal)
             cell.attendingEvent=true
         }
@@ -110,10 +129,40 @@ class EventTableTableViewController: UITableViewController {
             CommentsViewController
             let myindexPath=self.tableView.indexPathForSelectedRow!
             let row=myindexPath.row
+            print("row="+String(row))
             CommentsViewController.Event_ID=IDOfEvent[row]
             
             
         }
+        if(segue.identifier=="eventCreator")
+        {let controller=segue.destination as!
+            EventCreatorProfileController
+            
+           //let myindexPath=self.tableView.indexPathForSelectedRow!
+           //let row=myindexPath.row
+            print("block1.h2=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooccc")
+            print(rowNumber)
+            guard let rowNumber=rowNumber else
+            {return}
+            controller.creatorId=organizerID[rowNumber]
+            //
+            
+        }
+        
+        
+    }
+    @objc func viewCreatorInfo(_ sender: UIButton) {
+        print("block1.1=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
+        let rowTemp=indexPath?.row
+        guard let rowTemp1=rowTemp else
+        {return }
+        rowNumber=rowTemp1
+       
+    self.performSegue(withIdentifier: "eventCreator", sender: nil)
+        
+      
     }
     
     func getEventsFromFireBase()
@@ -141,6 +190,8 @@ class EventTableTableViewController: UITableViewController {
                 self.AttendanceCount.append(String(attendance))
                 let id=snap.key as! String
                 self.IDOfEvent.append(id)
+                let organizerID1=placeDict["EventCreator"] as! String
+                self.organizerID.append(organizerID1)
                 
                 
                 
@@ -153,7 +204,7 @@ class EventTableTableViewController: UITableViewController {
             }
         print("---------------------------------------------------------------------")
          print("---------------------------------------------------------------------")
-        print(self.tempTitle[0])
+        //print(self.tempTitle[0])
          self.tableView.reloadData()
         })
         
@@ -187,7 +238,7 @@ class EventTableTableViewController: UITableViewController {
                 print("tyu---------------------------------------------------------------------")
                 print("---------------------------------------------------------------------")
                // print(self.tempTitle[0])
-                self.tableView.reloadData()
+                 self.tableView.reloadData()
             })
             
             

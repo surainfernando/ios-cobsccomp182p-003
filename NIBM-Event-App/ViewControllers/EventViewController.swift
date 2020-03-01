@@ -81,6 +81,14 @@ class EventViewController: UIViewController {
         return check
     }
     
+    func clearTexTFields()
+    {
+        TitleTextView.text=""
+        DescriptionTextView.text=""
+        ContactnoTextField.text=""
+       PhotoImageView.image = nil
+    }
+    
     func checkContactNo()->Bool
     {
        
@@ -202,6 +210,8 @@ class EventViewController: UIViewController {
             
           
             ref.child("Events").childByAutoId().setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":"","People_Attending":0,"EventCreator":uid])
+                 clearTexTFields()
+            createAlert1(messagestring: "Your Event has been successfully posted")
             
             
            
@@ -212,7 +222,13 @@ class EventViewController: UIViewController {
     
     
     
-    
+    func  createAlert1(messagestring:String)
+    {
+        let alertController = UIAlertController(title: "SUCCESS!!!", message:messagestring, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     func getImageString()->NSString{
         guard let  image = PhotoImageView.image else{

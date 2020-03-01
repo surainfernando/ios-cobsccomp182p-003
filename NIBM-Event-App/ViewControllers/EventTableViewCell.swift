@@ -21,11 +21,19 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var timerange_label: UILabel!
     
     @IBOutlet weak var attendance_number_label: UILabel!
+    @IBOutlet weak var ccontactCreatorButton: UIButton!
     
     @IBOutlet weak var goButton: UIButton!
     var name1:String?
     var idOfEvent:Int?
     var attendingEvent:Bool?
+    var organizerId:String?
+    var rowNo:Int?
+    var buttonAction: ((Any) -> Void)?
+    
+    @objc func viewCreatorInfo(sender: Any) {
+        self.buttonAction?(sender)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -130,6 +138,7 @@ class EventTableViewCell: UITableViewCell {
     }
     
     @IBAction func contactOrganizerAction(_ sender: Any) {
+        
     }
     
     @IBAction func viewCommentsAction(_ sender: Any) {
@@ -139,4 +148,5 @@ class EventTableViewCell: UITableViewCell {
         print("-----------------------------------------------------")
         print("-----------------------------------------------------")
     }
+    
 }

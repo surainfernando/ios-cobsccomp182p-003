@@ -41,6 +41,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableView.delegate=self
         tableView.rowHeight=130
         getEventsFromFireBase()
+        setlabels()
        
         //  label2.text=Event_ID
         
@@ -57,6 +58,35 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell.commentBodyLabel.sizeToFit()
         return cell
     }
+    
+    func setlabels()
+    {
+        var ref: DatabaseReference!
+        guard let Event_ID=Event_ID else
+    {return }
+        ref = Database.database().reference()
+        ref.child("Events").child(Event_ID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let title = value?["Title"] as? String ?? ""
+            self.titleLabel.text=title
+            let description=value?["Description"] as? String ?? ""
+            self.descriptionLabel.text=description
+            let btime=value?["BeginTime"] as? String ?? ""
+            let etime=value?["EndTime"] as? String ?? ""
+            self.timerangelabel.text="From"+" "+btime+" To"+" "+etime
+            self.locationLabel.text="Location"
+            
+           
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

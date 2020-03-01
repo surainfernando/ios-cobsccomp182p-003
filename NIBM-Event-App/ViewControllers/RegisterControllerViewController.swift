@@ -26,9 +26,13 @@ class RegisterControllerViewController: UIViewController {
     
     @IBOutlet weak var lnameTF: UITextField!
     
+    @IBOutlet weak var telTF: UITextField!
     
+    
+    @IBOutlet weak var fbURLTF: UITextField!
     @IBOutlet weak var profilePIC: UIImageView!
      var imagePicker: ImagePicker!
+    
     
     
     override func viewDidLoad() {
@@ -67,8 +71,10 @@ class RegisterControllerViewController: UIViewController {
     {
         var check=true
         check=validateTextFields()
+        check=checkContactNo()
         check=checkIfImageSelected()
         check=checkIfPasswordsMatch()
+        check=checkPasswordLength()
         return check
     }
     func validateTextFields()->Bool
@@ -84,6 +90,9 @@ class RegisterControllerViewController: UIViewController {
         {check=false}
         if(lnameTF.text=="")
         {check=false}
+        if(fbURLTF.text=="")
+        {check=false}
+        
         if(check==false)
         {
             createAlert(messagestring: "Please Fill All The Text Fields")
@@ -92,6 +101,39 @@ class RegisterControllerViewController: UIViewController {
         
         
     }
+    func checkPasswordLength()->Bool
+    {
+        
+        guard let Text=passordTF.text else
+        {return false}
+        if(Text.count<6)
+        {createAlert(messagestring: "Password should contain more than 6 characters")
+            return false}
+        return true
+        
+    }
+    
+    
+    func checkContactNo()->Bool
+    {
+        
+        
+        guard let phoneText=telTF.text else
+        {return false}
+        let phoneNumberLength=phoneText.count
+        
+        if(phoneNumberLength != 10)
+        {createAlert(messagestring: "Please enter a phone number with ten digits in the relavent Text Fied.")
+            return false}
+        guard let a=Int(phoneText) else
+        {
+            createAlert(messagestring: "Please enter a phone number with ten digits in the relavent Text Fied.")
+            return false
+        }
+        return true
+    }
+    
+    
     func checkIfImageSelected()->Bool
     {
         guard let  image = profilePIC.image else{
@@ -129,6 +171,8 @@ class RegisterControllerViewController: UIViewController {
         guard let password=passordTF.text else{return}
           guard let fname=fnameTF.text else{return}
          guard let lname=lnameTF.text else{return}
+         guard let tel=telTF.text else{return}
+         guard let fburl=fbURLTF.text else{return}
         let fullname=fname+" "+lname
 
         
@@ -152,8 +196,20 @@ class RegisterControllerViewController: UIViewController {
 //
 //                            }
 //                        }
-                       self.clearFields()
-                        self.performSegue(withIdentifier: "seg2", sender: nil)
+                        
+                        let user = Auth.auth().currentUser
+                        if let user=user{
+                            var refe: DatabaseReference!
+                            
+                            refe = Database.database().reference()
+                            refe.child("User_Profiles").child(user.uid).setValue(["FirstName":fname,"LastName":lname,"ContactNumber":tel,"FBURL":fburl])
+                            
+                            self.clearFields()
+                            self.createSuccessMessage()
+                            
+                            
+                        }
+                     
                         
                     }else{
                         print("COuldnt input name")
@@ -183,6 +239,16 @@ class RegisterControllerViewController: UIViewController {
         repeatpasswordTF.text=""
         fnameTF.text=""
         lnameTF.text=""
+        fbURLTF.text=""
+        telTF.text=""
+    }
+    func createSuccessMessage()
+    {
+        let alertController = UIAlertController(title: "SUCCESS!!!", message:"Your account has been successfully registerd!!", preferredStyle: .alert)
+        //alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.performSegue(withIdentifier: "seg2", sender: nil) }))
+        self.present(alertController, animated: true, completion: nil)
     }
 
     func createAlert(messagestring:String)

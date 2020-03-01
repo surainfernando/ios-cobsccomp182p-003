@@ -15,6 +15,7 @@
 		286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */; };
 		2879436C2404BB880039F907 /* LoginUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436B2404BB880039F907 /* LoginUI.swift */; };
 		2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436D2404DCF00039F907 /* LoginUI2.swift */; };
+		288CAC73240B762F0075B0E9 /* EventCreatorProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */; };
 		289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05D72403F8D200DB1C88 /* AppDelegate.swift */; };
 		289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05D92403F8D200DB1C88 /* ViewController.swift */; };
 		289D05DD2403F8D200DB1C88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289D05DB2403F8D200DB1C88 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordContrller.swift; sourceTree = "<group>"; };
 		2879436B2404BB880039F907 /* LoginUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI.swift; sourceTree = "<group>"; };
 		2879436D2404DCF00039F907 /* LoginUI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI2.swift; sourceTree = "<group>"; };
+		288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreatorProfileController.swift; sourceTree = "<group>"; };
 		289D05D42403F8D200DB1C88 /* NIBM-Event-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM-Event-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		289D05D72403F8D200DB1C88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289D05D92403F8D200DB1C88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */,
 				28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */,
 				28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */,
+				288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */,
 				28A6DAB3240AB48100C6DEE3 /* MainTabBarController.swift in Sources */,
 				28F2143F2408B8C7001ABD24 /* EventTableViewCell.swift in Sources */,
+				288CAC73240B762F0075B0E9 /* EventCreatorProfileController.swift in Sources */,
 				2879436C2404BB880039F907 /* LoginUI.swift in Sources */,
 				289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */,
 				2808E3E724062C1700947E79 /* ImagePicker.swift in Sources */,
