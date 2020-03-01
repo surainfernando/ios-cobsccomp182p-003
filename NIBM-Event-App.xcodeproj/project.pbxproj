@@ -12,10 +12,12 @@
 		281C79782408C507008F4C86 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C79772408C507008F4C86 /* CommentsViewController.swift */; };
 		281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */; };
 		28254844240A330800ECA61C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28254843240A330800ECA61C /* CommentCell.swift */; };
+		283C580F240C091F00A7C161 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283C580E240C091F00A7C161 /* LocalAuthentication.framework */; };
 		286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */; };
 		2879436C2404BB880039F907 /* LoginUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436B2404BB880039F907 /* LoginUI.swift */; };
 		2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436D2404DCF00039F907 /* LoginUI2.swift */; };
 		288CAC73240B762F0075B0E9 /* EventCreatorProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */; };
+		289AF8C2240C1160007AD3FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289AF8C1240C1160007AD3FC /* UserProfileViewController.swift */; };
 		289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05D72403F8D200DB1C88 /* AppDelegate.swift */; };
 		289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05D92403F8D200DB1C88 /* ViewController.swift */; };
 		289D05DD2403F8D200DB1C88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289D05DB2403F8D200DB1C88 /* Main.storyboard */; };
@@ -58,10 +60,12 @@
 		281C79772408C507008F4C86 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temptestViewController.swift; sourceTree = "<group>"; };
 		28254843240A330800ECA61C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		283C580E240C091F00A7C161 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordContrller.swift; sourceTree = "<group>"; };
 		2879436B2404BB880039F907 /* LoginUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI.swift; sourceTree = "<group>"; };
 		2879436D2404DCF00039F907 /* LoginUI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI2.swift; sourceTree = "<group>"; };
 		288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreatorProfileController.swift; sourceTree = "<group>"; };
+		289AF8C1240C1160007AD3FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		289D05D42403F8D200DB1C88 /* NIBM-Event-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM-Event-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		289D05D72403F8D200DB1C88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289D05D92403F8D200DB1C88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283C580F240C091F00A7C161 /* LocalAuthentication.framework in Frameworks */,
 				B6168A277500DB387C25F97B /* Pods_NIBM_Event_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +231,7 @@
 				28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */,
 				28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */,
 				288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */,
+				289AF8C1240C1160007AD3FC /* UserProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 		C0189B4F119A3D89193DC61D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				283C580E240C091F00A7C161 /* LocalAuthentication.framework */,
 				363B09519DBD6D5ED578D172 /* Pods_NIBM_Event_App.framework */,
 				B85B39A5CE18447E2C531AF5 /* Pods_NIBM_Event_AppTests.framework */,
 				B70DCA9DC1A1E10F7FCF8330 /* Pods_NIBM_Event_AppUITests.framework */,
@@ -482,6 +489,7 @@
 				288CAC73240B762F0075B0E9 /* EventCreatorProfileController.swift in Sources */,
 				2879436C2404BB880039F907 /* LoginUI.swift in Sources */,
 				289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */,
+				289AF8C2240C1160007AD3FC /* UserProfileViewController.swift in Sources */,
 				2808E3E724062C1700947E79 /* ImagePicker.swift in Sources */,
 				289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */,
 				28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */,

@@ -75,11 +75,11 @@ class EventTableTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         let row=indexPath.row
-        self.tableView.rowHeight = 301
+        self.tableView.rowHeight = 128
         cell.title_label.text=tempTitle[row]
-        cell.description_label.text=Descriptions[row]
-        cell.timerange_label.text=Time[row]
-        cell.date_label.text=Date[row]
+       // cell.description_label.text=Descriptions[row]
+        //cell.timerange_label.text=Time[row]
+        //cell.date_label.text=Date[row]
         cell.attendance_number_label.text="ATTENDANCE:"+AttendanceCount[row]
         cell.name1=IDOfEvent[row]
         cell.organizerId=organizerID[row]

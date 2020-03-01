@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import LocalAuthentication
 
 
 class LoginViewController: UIViewController {
@@ -16,9 +17,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var testlabel: UILabel!
     @IBOutlet weak var EmailTextField: UITextField!
     
+    
     @IBOutlet weak var PassWordTextField: UITextField!
+    
+    @IBOutlet weak var loginBtn: UIButton!
+    
+    @IBOutlet weak var passwordBtn: UIButton!
+    
+    @IBOutlet weak var signBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        signOUT()
         setAppearance()
 
         // Do any additional setup after loading the view.
@@ -98,6 +107,7 @@ class LoginViewController: UIViewController {
                     }
                     print("User name is -----------------------------------00")
                     print(hh)
+               
                      self.segeueToHomeVIew()
                     
                 }
@@ -139,12 +149,24 @@ class LoginViewController: UIViewController {
         }
         
     }
+    func signOUT()
+    {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     
     func setAppearance()
     {
         
         setButtonStyle(fieldname: EmailTextField)
         setButtonStyle(fieldname: PassWordTextField)
+        setButtonStyle2(button: loginBtn)
+        setButtonStyle2(button: passwordBtn)
+        setButtonStyle2(button: signBtn)
         
     }
     
@@ -155,4 +177,16 @@ class LoginViewController: UIViewController {
         fieldname.layer.borderColor = UIColor.blue.cgColor
         fieldname.layer.borderWidth = 2.0
     }
+    
+    func setButtonStyle2(button:UIButton)
+    {
+        button.layer.cornerRadius=8.0
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.white, for: .normal)
+        
+    }
+   
 }

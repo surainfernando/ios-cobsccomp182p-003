@@ -31,6 +31,12 @@ class RegisterControllerViewController: UIViewController {
     
     @IBOutlet weak var fbURLTF: UITextField!
     @IBOutlet weak var profilePIC: UIImageView!
+    
+    
+    @IBOutlet weak var sbtn: UIButton!
+    
+    @IBOutlet weak var cbtn: UIButton!
+    
      var imagePicker: ImagePicker!
     
     
@@ -39,6 +45,7 @@ class RegisterControllerViewController: UIViewController {
         super.viewDidLoad()
          self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         signOUT()
+        setComponents()
 
         // Do any additional setup after loading the view.
     }
@@ -259,6 +266,38 @@ class RegisterControllerViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    
+    func setComponents()
+    {
+setButtonStyle(fieldname: fnameTF)
+        setButtonStyle(fieldname: passordTF)
+        setButtonStyle(fieldname: repeatpasswordTF)
+        setButtonStyle(fieldname: fnameTF)
+        setButtonStyle(fieldname: lnameTF)
+        setButtonStyle(fieldname: telTF)
+        setButtonStyle(fieldname: fbURLTF)
+        setButtonStyle2(button: sbtn)
+        setButtonStyle2(button: cbtn)
+        setButtonStyle(fieldname: emailTF)
+    }
+    func setButtonStyle(fieldname:UITextField)
+    {
+        fieldname.layer.cornerRadius = 8.0
+        fieldname.layer.masksToBounds = true
+        fieldname.layer.borderColor = UIColor.blue.cgColor
+        fieldname.layer.borderWidth = 2.0
+    }
+    
+    func setButtonStyle2(button:UIButton)
+    {
+        button.layer.cornerRadius=8.0
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.white, for: .normal)
+        
+    }
 
     
 

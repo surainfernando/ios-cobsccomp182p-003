@@ -26,6 +26,8 @@ class EventViewController: UIViewController {
     
     
     
+    @IBOutlet weak var btncreate: UIButton!
+    
     
     
     var imagePicker: ImagePicker!
@@ -34,6 +36,7 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
          self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         initiationCode()
+        sertComponents()
 
         // Do any additional setup after loading the view.
     }
@@ -242,6 +245,39 @@ class EventViewController: UIViewController {
         let datastring:NSString = NSString(data: jpegData, encoding: String.Encoding.utf8.rawValue) ?? ""
         return datastring
         
+        
+    }
+    func sertComponents()
+    {
+        setTextFieldStyle(fieldname: TitleTextView)
+        setTextFieldStyle(fieldname: ContactnoTextField)
+        setTextAreaStyle(fieldname: DescriptionTextView)
+        setButtonStyle2(button: btncreate)
+    }
+    
+    func setTextFieldStyle(fieldname:UITextField)
+    {
+        fieldname.layer.cornerRadius = 8.0
+        fieldname.layer.masksToBounds = true
+        fieldname.layer.borderColor = UIColor.blue.cgColor
+        fieldname.layer.borderWidth = 2.0
+    }
+    func setTextAreaStyle(fieldname:UITextView)
+    {
+        fieldname.layer.cornerRadius = 8.0
+        fieldname.layer.masksToBounds = true
+        fieldname.layer.borderColor = UIColor.blue.cgColor
+        fieldname.layer.borderWidth = 2.0
+    }
+    
+    func setButtonStyle2(button:UIButton)
+    {
+        button.layer.cornerRadius=8.0
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.white, for: .normal)
         
     }
     
