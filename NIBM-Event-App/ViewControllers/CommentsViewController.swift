@@ -41,6 +41,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableView.delegate=self
         tableView.rowHeight=130
         getEventsFromFireBase()
+       
         //  label2.text=Event_ID
         
         // Do any additional setup after loading the view.

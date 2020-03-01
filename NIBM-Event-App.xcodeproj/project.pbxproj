@@ -12,6 +12,7 @@
 		281C79782408C507008F4C86 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C79772408C507008F4C86 /* CommentsViewController.swift */; };
 		281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */; };
 		28254844240A330800ECA61C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28254843240A330800ECA61C /* CommentCell.swift */; };
+		286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */; };
 		2879436C2404BB880039F907 /* LoginUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436B2404BB880039F907 /* LoginUI.swift */; };
 		2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436D2404DCF00039F907 /* LoginUI2.swift */; };
 		289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05D72403F8D200DB1C88 /* AppDelegate.swift */; };
@@ -24,6 +25,8 @@
 		289D05FB2403F8D200DB1C88 /* NIBM_Event_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D05FA2403F8D200DB1C88 /* NIBM_Event_AppUITests.swift */; };
 		289D06092403F8E600DB1C88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 289D06082403F8E600DB1C88 /* GoogleService-Info.plist */; };
 		289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D060B2403FE4600DB1C88 /* LoginViewController.swift */; };
+		28A6DAB3240AB48100C6DEE3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */; };
+		28A6DAB5240AC41600C6DEE3 /* RegisterControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */; };
 		28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */; };
 		28F2143F2408B8C7001ABD24 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */; };
 		846E1EB8E42AC66D56931230 /* Pods_NIBM_Event_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70DCA9DC1A1E10F7FCF8330 /* Pods_NIBM_Event_AppUITests.framework */; };
@@ -54,6 +57,7 @@
 		281C79772408C507008F4C86 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		281DF83D2407C2EA00CB05F2 /* temptestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temptestViewController.swift; sourceTree = "<group>"; };
 		28254843240A330800ECA61C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordContrller.swift; sourceTree = "<group>"; };
 		2879436B2404BB880039F907 /* LoginUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI.swift; sourceTree = "<group>"; };
 		2879436D2404DCF00039F907 /* LoginUI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI2.swift; sourceTree = "<group>"; };
 		289D05D42403F8D200DB1C88 /* NIBM-Event-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM-Event-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +76,8 @@
 		289D05FC2403F8D200DB1C88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289D06082403F8E600DB1C88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		289D060B2403FE4600DB1C88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterControllerViewController.swift; sourceTree = "<group>"; };
 		28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableTableViewController.swift; sourceTree = "<group>"; };
 		28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		363B09519DBD6D5ED578D172 /* Pods_NIBM_Event_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Event_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +220,9 @@
 				28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */,
 				281C79772408C507008F4C86 /* CommentsViewController.swift */,
 				28254843240A330800ECA61C /* CommentCell.swift */,
+				286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */,
+				28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */,
+				28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -465,14 +474,17 @@
 			files = (
 				28254844240A330800ECA61C /* CommentCell.swift in Sources */,
 				2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */,
+				28A6DAB3240AB48100C6DEE3 /* MainTabBarController.swift in Sources */,
 				28F2143F2408B8C7001ABD24 /* EventTableViewCell.swift in Sources */,
 				2879436C2404BB880039F907 /* LoginUI.swift in Sources */,
 				289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */,
 				2808E3E724062C1700947E79 /* ImagePicker.swift in Sources */,
 				289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */,
 				28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */,
+				28A6DAB5240AC41600C6DEE3 /* RegisterControllerViewController.swift in Sources */,
 				281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */,
 				281C79782408C507008F4C86 /* CommentsViewController.swift in Sources */,
+				286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */,
 				2808E3E924062C5000947E79 /* EventViewController.swift in Sources */,
 				289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */,
 				289D05E02403F8D200DB1C88 /* NIBM_Event_App.xcdatamodeld in Sources */,

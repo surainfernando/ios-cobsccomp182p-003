@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var PassWordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAppearance()
 
         // Do any additional setup after loading the view.
     }
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func ForgotPasswordAction(_ sender: Any) {
-        testfunc1()
+         performSegue(withIdentifier: "forgotPasswordPath", sender: nil)
     }
     
     @IBAction func SignUpAction(_ sender: Any) {
@@ -137,5 +138,21 @@ class LoginViewController: UIViewController {
             
         }
         
+    }
+    
+    func setAppearance()
+    {
+        
+        setButtonStyle(fieldname: EmailTextField)
+        setButtonStyle(fieldname: PassWordTextField)
+        
+    }
+    
+    func setButtonStyle(fieldname:UITextField)
+    {
+        fieldname.layer.cornerRadius = 8.0
+        fieldname.layer.masksToBounds = true
+        fieldname.layer.borderColor = UIColor.blue.cgColor
+        fieldname.layer.borderWidth = 2.0
     }
 }
