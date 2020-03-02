@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oT-st-f4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262.5" y="-451.25"/>
+            <point key="canvasLocation" x="-876" y="-1186"/>
         </scene>
         <!--Reset Password Contrller-->
         <scene sceneID="qcV-RK-30v">
@@ -459,7 +459,7 @@
             </objects>
             <point key="canvasLocation" x="-7344" y="495"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="XJP-8g-OPL">
             <objects>
                 <viewController id="Hv3-DN-Erc" customClass="UserProfileViewController" customModule="NIBM_Event_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -514,17 +514,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uhh-88-3g1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="cUd-P4-amC"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="cUd-P4-amC"/>
                     <connections>
                         <outlet property="emaillabel" destination="dGU-Pv-Tv4" id="gu9-ce-2ST"/>
                         <outlet property="namelabel" destination="8qb-aS-Xx9" id="QCG-xB-LPr"/>
+                        <segue destination="OcO-wR-pbn" kind="show" identifier="backToLogin" id="pCz-YW-ZQa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cq-6V-8cH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2648" y="-1385"/>
         </scene>
-        <!--Item-->
+        <!--Create Events-->
         <scene sceneID="gDV-sg-KwP">
             <objects>
                 <viewController id="lrH-XY-nuI" customClass="EventViewController" customModule="NIBM_Event_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -732,7 +733,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="07M-BV-4E1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kSB-iD-14j"/>
+                    <tabBarItem key="tabBarItem" title="Create Events" id="kSB-iD-14j"/>
                     <size key="freeformSize" width="414" height="1857"/>
                     <connections>
                         <outlet property="ContactnoTextField" destination="7V6-CR-m4v" id="qIE-E7-lDj"/>
@@ -1132,7 +1133,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="hRF-XN-kfg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c7u-BE-aZx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1149,7 +1150,7 @@
         <image name="8012801_R_Z001A_UC1268924" width="750" height="440"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hLs-Jh-65y"/>
-        <segue reference="4G4-hr-zGl"/>
+        <segue reference="VYy-E8-u01"/>
+        <segue reference="pCz-YW-ZQa"/>
     </inferredMetricsTieBreakers>
 </document>

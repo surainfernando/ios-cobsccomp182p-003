@@ -18,6 +18,7 @@ class UserProfileViewController: UIViewController {
         
         super.viewDidLoad()
         setLabels()
+        self.title = "Name me!";
 
         // Do any additional setup after loading the view.
     }
@@ -29,7 +30,7 @@ class UserProfileViewController: UIViewController {
     
     func signOUT()
     {
-        self.performSegue(withIdentifier: "seg2", sender: nil)
+        self.performSegue(withIdentifier: "backToLogin", sender: nil)
     }
    
     func setLabels()

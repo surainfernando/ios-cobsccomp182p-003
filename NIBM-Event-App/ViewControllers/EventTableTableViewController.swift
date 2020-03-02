@@ -41,6 +41,7 @@ class EventTableTableViewController: UITableViewController {
         var isLoadingViewController = false
         getEventsFromFireBase()
         tableView.reloadData()
+        self.title = "Events";
         setUserId()
 
         attractionNames=["Eifel","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car23232323","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof3444","car","Eifel"]

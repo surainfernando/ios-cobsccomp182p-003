@@ -24,6 +24,7 @@ class EventCreatorProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title="Create Events"
 setLabelValues()
         // Do any additional setup after loading the view.
     }

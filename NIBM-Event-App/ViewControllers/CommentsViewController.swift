@@ -121,6 +121,8 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             print(uid)
             var ref = Database.database().reference()
             ref.child("Comments/\(Event_ID)").childByAutoId().setValue(["UID":uid,"DisplayName":dname,"Comment":text])
+            textView.text=""
+            getEventsFromFireBase()
             
         }
         
