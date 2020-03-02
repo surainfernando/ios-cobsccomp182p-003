@@ -18,7 +18,7 @@ class UserProfileViewController: UIViewController {
         
         super.viewDidLoad()
         setLabels()
-        self.title = "Name me!";
+     
 
         // Do any additional setup after loading the view.
     }

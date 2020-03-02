@@ -38,7 +38,7 @@ class EventTableTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var isLoadingViewController = false
+        isLoadingViewController = false
         getEventsFromFireBase()
         tableView.reloadData()
         self.title = "Events";
@@ -58,8 +58,26 @@ class EventTableTableViewController: UITableViewController {
         if isLoadingViewController {
             isLoadingViewController = false
         } else {
+            clearArray()
             getEventsFromFireBase()
         }
+    }
+    
+    func clearArray()
+    {
+        attractionImages.removeAll()
+        attractionNames.removeAll()
+        webAddresses.removeAll()
+        tempTitle.removeAll()
+        Descriptions.removeAll()
+        Time.removeAll()
+        Date.removeAll()
+        Location.removeAll()
+        AttendanceCount.removeAll()
+        IDOfEvent.removeAll()
+        
+        listOfEvents.removeAll()
+        organizerID.removeAll()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

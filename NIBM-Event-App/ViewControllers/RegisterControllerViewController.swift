@@ -78,27 +78,43 @@ class RegisterControllerViewController: UIViewController {
     {
         var check=true
         check=validateTextFields()
+        if(check==false)
+        {return false}
         check=checkContactNo()
+        if(check==false)
+        {return false}
         check=checkIfImageSelected()
+        if(check==false)
+        {return false}
         check=checkIfPasswordsMatch()
+        if(check==false)
+        {return false}
         check=checkPasswordLength()
+        if(check==false)
+        {return false}
         return check
     }
     func validateTextFields()->Bool
     {
         var check=true
         if(emailTF.text=="")
-        {check=false}
+        { createAlert(messagestring: "Please Fill All The Text Fields")
+            return false}
         if(passordTF.text=="")
-        {check=false}
+        { createAlert(messagestring: "Please Fill All The Text Fields")
+            return false}
         if(repeatpasswordTF.text=="")
-        {check=false}
+        { createAlert(messagestring: "Please Fill All The Text Fields")
+            return false}
         if(fnameTF.text=="")
-        {check=false}
+        { createAlert(messagestring: "Please Fill All The Text Fields")
+            return false}
         if(lnameTF.text=="")
-        {check=false}
+        { createAlert(messagestring: "Please Fill All The Text Fields")
+            return false}
         if(fbURLTF.text=="")
-        {check=false}
+        { createAlert(messagestring: "Please Fill All The Text Fields")
+            return false}
         
         if(check==false)
         {

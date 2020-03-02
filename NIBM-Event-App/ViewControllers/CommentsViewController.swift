@@ -40,6 +40,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableView.dataSource=self
         tableView.delegate=self
         tableView.rowHeight=130
+        clearArray()
         getEventsFromFireBase()
         setlabels()
        
@@ -86,6 +87,13 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
     }
+    func clearArray()
+    {
+        commentList.removeAll()
+        uidList.removeAll()
+        nameList.removeAll()
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

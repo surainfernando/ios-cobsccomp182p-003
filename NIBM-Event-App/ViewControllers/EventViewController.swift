@@ -51,8 +51,9 @@ class EventViewController: UIViewController {
             return
         }
         
-        ContactnoTextField.text="sucees"
-        writeEventToDatabase()
+        if(z==true)
+        {writeEventToDatabase()}
+        
         
        
         
@@ -72,14 +73,26 @@ class EventViewController: UIViewController {
     func checkIfAllFieldsAreFilled()->Bool{
         var check=true
         check=checkContactNo()
+        if(!check)
+        {return false}
         check=checkIfTimesAreCorrect()
+        if(!check)
+        {return false}
         check=checkIfImageSelected()
+        if(!check)
+        {return false}
         if(TitleTextView.text=="")
         {check=false}
+        if(!check)
+        {return false}
         if(DescriptionTextView.text=="")
         {check=false}
+        if(!check)
+        {return false}
         if(ContactnoTextField.text=="")
         {check=false}
+        if(!check)
+        {return false}
         
         return check
     }
