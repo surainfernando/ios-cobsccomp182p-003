@@ -9,11 +9,13 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class UserProfileViewController: UIViewController {
 
     @IBOutlet weak var emaillabel: UILabel!
     @IBOutlet weak var namelabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -32,6 +34,28 @@ class UserProfileViewController: UIViewController {
     {
         self.performSegue(withIdentifier: "backToLogin", sender: nil)
     }
+    
+    func display(imageString:String) {
+        
+        let storage = Storage.storage()
+       
+        let storageRef = storage.reference()
+        let mountainImagesRef = storageRef.child(imageString)
+        mountainImagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error BLOCK!--------------------------------------------")
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                guard let image2=image else
+                {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                    return}
+                self.imageView.image=image2
+            }
+        }
+        
+    }
    
     func setLabels()
     {let user1 = Auth.auth().currentUser
@@ -49,8 +73,12 @@ class UserProfileViewController: UIViewController {
                 let lname=value?["LastName"] as? String ?? ""
                 let name=fname+" "+lname
                 let tel = value?["ContactNumber"] as? String ?? ""
+                let imageString=value?["ProfilePic"] as? String ?? ""
+                self.display(imageString: imageString)
               self.emaillabel.text=tel
              self.namelabel.text=name
+                
+                
                 
                 
                 

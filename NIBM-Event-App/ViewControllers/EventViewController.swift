@@ -224,8 +224,11 @@ class EventViewController: UIViewController {
             var ref = Database.database().reference()
 //            ref.child("Events").child(uid).setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":jpeg,"People_Attending":0])
             
-          
-            ref.child("Events").childByAutoId().setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":"","People_Attending":0,"EventCreator":uid])
+            guard  var uniqueKey=ref.child("Events").childByAutoId().key else
+            {return}
+           uniqueKey.remove(at: uniqueKey.startIndex)
+            ref.child("Events/\(uniqueKey)").setValue(["Title":titletext,"Description":descriptionText,"phone_number":telephoneNumber,"Date":Date,"BeginTime":begintime,"EndTime":endtime,"ImageString":"EventImages/\(uniqueKey).jpg","People_Attending":0,"EventCreator":uid])
+            uploadImage(imageString: uniqueKey)
                  clearTexTFields()
             createAlert1(messagestring: "Your Event has been successfully posted")
             
@@ -293,7 +296,114 @@ class EventViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         
     }
+    func uploadImage(imageString:String)
+    {
+        guard let image=PhotoImageView.image else
+        {print("no image--------------------------")
+            return}
+        print("have image--------------------------")
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        let imgData = self.PhotoImageView.image?.pngData()
+        guard let imgData2=imgData else
+        {return }
+        let metaData = StorageMetadata()
+        
+        let mountainImagesRef = storageRef.child("EventImages/\(imageString).jpg")
+        let uploadTask = mountainImagesRef.putData(imgData2, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            
+            
+            
+            
+            
+        }
+        
+    }
     
+    
+    @IBAction func temp2(_ sender: Any) {
+        
+        let storage = Storage.storage()
+        var a="-M1U-X4leqSwx5ZsL80D"
+        
+        let storageRef = storage.reference()
+        let mountainImagesRef = storageRef.child("EventImages/M1UWTNc2iXDCKWeUxmh.jpg")
+        mountainImagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error BLOCK!--------------------------------------------")
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                guard let image2=image else
+                {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                    return}
+                self.PhotoImageView.image=image2
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func tempunp2(_ sender: Any) {
+        
+    }
+    
+    @IBAction func tempUploadImage(_ sender: Any) {
+        guard let image=PhotoImageView.image else
+        {print("no image--------------------------")
+            return}
+        print("have image--------------------------")
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        let imgData = self.PhotoImageView.image?.pngData()
+        guard let imgData2=imgData else
+        {return }
+        let metaData = StorageMetadata()
+        
+        let mountainImagesRef = storageRef.child("EventImages/M1U-X4leqSwx5ZsL80D.jpg")
+        let uploadTask = mountainImagesRef.putData(imgData2, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            
+        
+        
+        
+        
+        }
+        
+    }
+    
+    @IBAction func tempDIsImge(_ sender: Any) {
+     
+        let storage = Storage.storage()
+        var a="-M1U-X4leqSwx5ZsL80D"
+
+        let storageRef = storage.reference()
+        let mountainImagesRef = storageRef.child("EventImages/M1UAHr7DWNj-NeXH9Ls.jpg")
+        mountainImagesRef .getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error BLOCK!--------------------------------------------")
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                guard let image2=image else
+                {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                    return}
+                self.PhotoImageView.image=image2
+            }
+        }
+        
+    }
     
     
     

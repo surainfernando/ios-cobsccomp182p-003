@@ -22,6 +22,7 @@ class EventCreatorProfileController: UIViewController {
     
     @IBOutlet weak var fblLbel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title="Create Events"
@@ -56,6 +57,8 @@ setLabelValues()
                 self.fblLbel.text=urls
                 let tel = value?["ContactNumber"] as? String ?? ""
                 self.telLabel.text=tel
+                let imageString1=value?["ProfilePic"] as? String ?? ""
+                self.display(imageString: imageString1)
                 
                 
                 
@@ -70,6 +73,27 @@ setLabelValues()
         }
         
         
+        
+    }
+    func display(imageString:String) {
+        
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        let mountainImagesRef = storageRef.child(imageString)
+        mountainImagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error BLOCK!--------------------------------------------")
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                guard let image2=image else
+                {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                    return}
+                self.imageView.image=image2
+            }
+        }
         
     }
     

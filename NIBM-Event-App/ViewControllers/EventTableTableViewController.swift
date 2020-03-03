@@ -27,6 +27,7 @@ class EventTableTableViewController: UITableViewController {
     var listOfEvents=[String]()
     var organizerID=[String]()
     var rowNumber:Int?
+    
     var isLoadingViewController = false
     
     
@@ -46,7 +47,7 @@ class EventTableTableViewController: UITableViewController {
 
         attractionNames=["Eifel","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car23232323","Dof","car","Dof","car","Dof","car","Dof","car","Dof","car","Dof3444","car","Eifel"]
         webAddresses=["https://en.wikipedia.org/wiki/Eiffel_Tower","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Dog","https://en.wikipedia.org/wiki/Cat","https://en.wikipedia.org/wiki/Eiffel_Tower"]
-        attractionImages=["360px-Tour_Eiffel_Wikimedia_Commons_(cropped).jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","360px-Tour_Eiffel_Wikimedia_Commons_(cropped).jpg"]
+//        attractionImages=["360px-Tour_Eiffel_Wikimedia_Commons_(cropped).jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","Collage_of_Nine_Dogs.jpg","1280px-Cat_poster_1.jpg","360px-Tour_Eiffel_Wikimedia_Commons_(cropped).jpg"]
     }
     
     
@@ -95,15 +96,38 @@ class EventTableTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         let row=indexPath.row
         self.tableView.rowHeight = 128
+        
         cell.title_label.text=tempTitle[row]
-       // cell.description_label.text=Descriptions[row]
-        //cell.timerange_label.text=Time[row]
-        //cell.date_label.text=Date[row]
         cell.attendance_number_label.text="ATTENDANCE:"+AttendanceCount[row]
         cell.name1=IDOfEvent[row]
         cell.organizerId=organizerID[row]
         cell.ccontactCreatorButton.addTarget(self, action: #selector(viewCreatorInfo), for: .touchUpInside)
         cell.rowNo=row
+        
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child(attractionImages[row])
+        imagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error BLOCK!--------------------------------------------")
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                guard let image2=image else
+                {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                    return}
+                cell.ImageView1.image=image2
+               
+            }
+        }
+        
+        
+        
+        
+        
+        
         if listOfEvents.contains(IDOfEvent[row])
             
         {cell.goButton.setTitle("CANCEL ATENDANCE", for: .normal)
@@ -211,6 +235,8 @@ class EventTableTableViewController: UITableViewController {
                 self.IDOfEvent.append(id)
                 let organizerID1=placeDict["EventCreator"] as! String
                 self.organizerID.append(organizerID1)
+                let imagePath=placeDict["ImageString"] as! String
+                self.attractionImages.append(imagePath)
                 
                 
                 

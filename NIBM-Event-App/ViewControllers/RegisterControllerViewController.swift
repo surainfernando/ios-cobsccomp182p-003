@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class RegisterControllerViewController: UIViewController {
 
@@ -225,7 +226,9 @@ class RegisterControllerViewController: UIViewController {
                             var refe: DatabaseReference!
                             
                             refe = Database.database().reference()
-                            refe.child("User_Profiles").child(user.uid).setValue(["FirstName":fname,"LastName":lname,"ContactNumber":tel,"FBURL":fburl])
+                            refe.child("User_Profiles").child(user.uid).setValue(["FirstName":fname,"LastName":lname,"ContactNumber":tel,"FBURL":fburl,"ProfilePic":"ProfilePic/\(user.uid)"])
+                            let imagepath="ProfilePic/\(user.uid)"
+                            self.uploadImage(imageString: imagepath)
                             
                             self.clearFields()
                             self.createSuccessMessage()
@@ -312,6 +315,31 @@ setButtonStyle(fieldname: fnameTF)
         button.layer.borderWidth = 2.0
         button.backgroundColor = UIColor.blue
         button.setTitleColor(.white, for: .normal)
+        
+    }
+    func uploadImage(imageString:String)
+    {
+      
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        let imgData = self.profilePIC.image?.pngData()
+        guard let imgData2=imgData else
+        {return }
+        let metaData = StorageMetadata()
+        
+        let mountainImagesRef = storageRef.child(imageString)
+        let uploadTask = mountainImagesRef.putData(imgData2, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            
+            
+            
+            
+            
+        }
         
     }
 
