@@ -14,6 +14,7 @@
 		28254844240A330800ECA61C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28254843240A330800ECA61C /* CommentCell.swift */; };
 		283C580F240C091F00A7C161 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283C580E240C091F00A7C161 /* LocalAuthentication.framework */; };
 		286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */; };
+		2871A14A240EBE4F00A84FD9 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2871A149240EBE4F00A84FD9 /* KeychainPasswordItem.swift */; };
 		2879436C2404BB880039F907 /* LoginUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436B2404BB880039F907 /* LoginUI.swift */; };
 		2879436E2404DCF00039F907 /* LoginUI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879436D2404DCF00039F907 /* LoginUI2.swift */; };
 		288CAC73240B762F0075B0E9 /* EventCreatorProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */; };
@@ -62,6 +63,7 @@
 		28254843240A330800ECA61C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		283C580E240C091F00A7C161 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		286184B2240A9D0F00DA1F84 /* ResetPasswordContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordContrller.swift; sourceTree = "<group>"; };
+		2871A149240EBE4F00A84FD9 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		2879436B2404BB880039F907 /* LoginUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI.swift; sourceTree = "<group>"; };
 		2879436D2404DCF00039F907 /* LoginUI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUI2.swift; sourceTree = "<group>"; };
 		288CAC72240B762F0075B0E9 /* EventCreatorProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreatorProfileController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				2808E3E624062C1700947E79 /* ImagePicker.swift */,
+				2871A149240EBE4F00A84FD9 /* KeychainPasswordItem.swift */,
 			);
 			path = "Other Services";
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */,
 				281C79782408C507008F4C86 /* CommentsViewController.swift in Sources */,
 				286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */,
+				2871A14A240EBE4F00A84FD9 /* KeychainPasswordItem.swift in Sources */,
 				2808E3E924062C5000947E79 /* EventViewController.swift in Sources */,
 				289D05D82403F8D200DB1C88 /* AppDelegate.swift in Sources */,
 				289D05E02403F8D200DB1C88 /* NIBM_Event_App.xcdatamodeld in Sources */,

@@ -26,7 +26,9 @@ class EventTableTableViewController: UITableViewController {
     var userId:String?
     var listOfEvents=[String]()
     var organizerID=[String]()
+    var imageViewList=[UIImage]()
     var rowNumber:Int?
+    
     
     var isLoadingViewController = false
     
@@ -40,8 +42,8 @@ class EventTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         isLoadingViewController = false
-        getEventsFromFireBase()
-        tableView.reloadData()
+       // getEventsFromFireBase()
+        //tableView.reloadData()
         self.title = "Events";
         setUserId()
 
@@ -79,6 +81,7 @@ class EventTableTableViewController: UITableViewController {
         
         listOfEvents.removeAll()
         organizerID.removeAll()
+        imageViewList.removeAll()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,8 +106,10 @@ class EventTableTableViewController: UITableViewController {
         cell.organizerId=organizerID[row]
         cell.ccontactCreatorButton.addTarget(self, action: #selector(viewCreatorInfo), for: .touchUpInside)
         cell.rowNo=row
+     
         
         
+
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let imagesRef = storageRef.child(attractionImages[row])
@@ -119,7 +124,8 @@ class EventTableTableViewController: UITableViewController {
                 {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
                     return}
                 cell.ImageView1.image=image2
-               
+                self.imageViewList.append(image2)
+
             }
         }
         
@@ -174,6 +180,7 @@ class EventTableTableViewController: UITableViewController {
             let row=myindexPath.row
             print("row="+String(row))
             CommentsViewController.Event_ID=IDOfEvent[row]
+        //    CommentsViewController.imageVariabel=imageViewList[row]
             
             
         }
@@ -237,6 +244,29 @@ class EventTableTableViewController: UITableViewController {
                 self.organizerID.append(organizerID1)
                 let imagePath=placeDict["ImageString"] as! String
                 self.attractionImages.append(imagePath)
+                
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let imagesRef = storageRef.child(imagePath)
+                print("BLocck 1-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+//                imagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+//                    if let error = error {
+//                        print("Error BLOCK!--------------------------------------------")
+//                        // Uh-oh, an error occurred!
+//                    } else {
+//                        // Data for "images/island.jpg" is returned
+//                        let image = UIImage(data: data!)
+//                        guard let image2=image else
+//                        {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+//                            return}
+//                       self.imageViewList.append(image2)
+//
+//                    }
+//                    ("BLocck 2-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+//                }
+                ("BLocck 3-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+
+                
                 
                 
                 

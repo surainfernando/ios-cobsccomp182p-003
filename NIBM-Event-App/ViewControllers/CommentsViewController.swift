@@ -10,6 +10,7 @@ import UIKit
 import QuartzCore
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -18,6 +19,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var timerangelabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,6 +34,9 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var descriptionString:String?
     var dateString:String?
     var hourString:String?
+    var imagePath:String?
+    var imageVariabel:UIImage?
+    
     
     var animal=["dog","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt","cat","serpamt"]
     override func viewDidLoad() {
@@ -43,6 +48,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         clearArray()
         getEventsFromFireBase()
         setlabels()
+       // setImage()
        
         //  label2.text=Event_ID
         
@@ -58,6 +64,53 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell.commentBodyLabel!.text=commentList[indexPath.row]
         cell.commentBodyLabel.sizeToFit()
         return cell
+    }
+    func setImage()
+    { print("1.1 ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+
+        guard let imagepath=imagePath else
+    {return}
+        let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let imagesRef = storageRef.child(imagepath)
+                imagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print("Error BLOCK!--------------------------------------------")
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // Data for "images/island.jpg" is returned
+                        let image = UIImage(data: data!)
+                        guard let image2=image else
+                        {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                            return}
+                        print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+
+                 self.imageView.image=image2
+        
+                    }
+                }
+        
+    }
+    func display(imageString:String) {
+        
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        let mountainImagesRef = storageRef.child(imageString)
+        mountainImagesRef .getData(maxSize: 2 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error BLOCK!--------------------------------------------")
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                guard let image2=image else
+                {print("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+                    return}
+                self.imageView.image=image2
+            }
+        }
+        
     }
     
     func setlabels()
@@ -77,7 +130,8 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             let etime=value?["EndTime"] as? String ?? ""
             self.timerangelabel.text="From"+" "+btime+" To"+" "+etime
             self.locationLabel.text="Location"
-            
+            let imageString1=value?["ImageString"] as? String ?? ""
+            self.display(imageString: imageString1)
            
             
             // ...

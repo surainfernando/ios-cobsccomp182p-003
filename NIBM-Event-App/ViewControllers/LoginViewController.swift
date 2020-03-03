@@ -10,6 +10,11 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import LocalAuthentication
+struct KeychainConfiguration {
+    static let serviceName = "TouchMeIn"
+    static let accessGroup: String? = nil
+}
+
 
 
 class LoginViewController: UIViewController {
@@ -25,8 +30,29 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordBtn: UIButton!
     
     @IBOutlet weak var signBtn: UIButton!
+    var passwordItems: [KeychainPasswordItem] = []
+    let createLoginButtonTag = 0
+    let loginButtonTag = 1
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let hasLogin = UserDefaults.standard.bool(forKey: "hasLoginKey")
+//
+//        // 2
+//        if hasLogin {
+//            loginButton.setTitle("Login", for: .normal)
+//            loginButton.tag = loginButtonTag
+//            createInfoLabel.isHidden = true
+//        } else {
+//            loginButton.setTitle("Create", for: .normal)
+//            loginButton.tag = createLoginButtonTag
+//            createInfoLabel.isHidden = false
+//        }
+//
+//        // 3
+//        if let storedUsername = UserDefaults.standard.value(forKey: "username") as? String {
+//            usernameTextField.text = storedUsername
+//        }
         signOUT()
         setAppearance()
 
@@ -63,6 +89,23 @@ class LoginViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    func checkLogin(username: String, password: String) -> Bool {
+        guard username == UserDefaults.standard.value(forKey: "username") as? String else {
+            return false
+        }
+        
+        do {
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+                                                    account: username,
+                                                    accessGroup: KeychainConfiguration.accessGroup)
+            let keychainPassword = try passwordItem.readPassword()
+            return password == keychainPassword
+        } catch {
+            fatalError("Error reading password from keychain - \(error)")
+        }
     }
     
     func segeueToHomeVIew()

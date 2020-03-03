@@ -491,7 +491,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-y1-tgd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load1" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-y1-tgd">
                                 <rect key="frame" x="60" y="60" width="200" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="pir-Ja-hsn"/>
@@ -682,13 +682,6 @@
                                                     <action selector="chooseImageAction:" destination="lrH-XY-nuI" eventType="touchUpInside" id="SLC-s4-awQ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-9q-c81">
-                                                <rect key="frame" x="328" y="1488" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="temp2:" destination="lrH-XY-nuI" eventType="touchUpInside" id="K36-Zl-Run"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -699,13 +692,11 @@
                                             <constraint firstItem="ZhL-Hx-0Dl" firstAttribute="leading" secondItem="OQu-sX-o19" secondAttribute="leading" constant="50" id="2uR-DR-7Ag"/>
                                             <constraint firstItem="Yf9-8v-0tS" firstAttribute="leading" secondItem="OQu-sX-o19" secondAttribute="leading" constant="50" id="3u1-N5-Wv4"/>
                                             <constraint firstItem="1D9-i6-D8c" firstAttribute="leading" secondItem="OQu-sX-o19" secondAttribute="leading" constant="50" id="4Yu-7l-PAY"/>
-                                            <constraint firstItem="Kd6-9q-c81" firstAttribute="leading" secondItem="WGB-9v-L8Y" secondAttribute="trailing" constant="166" id="4ya-08-Iao"/>
                                             <constraint firstItem="Ozw-Kx-vPr" firstAttribute="leading" secondItem="OQu-sX-o19" secondAttribute="leading" constant="50" id="6Ni-Pp-WUX"/>
                                             <constraint firstItem="30Z-dQ-kFz" firstAttribute="centerX" secondItem="OQu-sX-o19" secondAttribute="centerX" id="Aer-uC-2X6"/>
                                             <constraint firstItem="7V6-CR-m4v" firstAttribute="top" secondItem="8MV-Ah-ESH" secondAttribute="bottom" constant="24" id="Dwd-64-51h"/>
                                             <constraint firstItem="7q5-PD-nxr" firstAttribute="top" secondItem="WGB-9v-L8Y" secondAttribute="bottom" constant="24" id="JsD-Nv-U8Y"/>
                                             <constraint firstItem="4Ba-e9-0jS" firstAttribute="leading" secondItem="OQu-sX-o19" secondAttribute="leading" constant="50" id="Kra-X7-c7G"/>
-                                            <constraint firstItem="Kd6-9q-c81" firstAttribute="top" secondItem="OQu-sX-o19" secondAttribute="top" constant="1488" id="NN3-mJ-eGZ"/>
                                             <constraint firstItem="gvx-Oq-p6G" firstAttribute="top" secondItem="UcS-he-dZP" secondAttribute="bottom" constant="30" id="Nw8-8D-k8b"/>
                                             <constraint firstItem="sgL-5O-Y6q" firstAttribute="top" secondItem="4Ba-e9-0jS" secondAttribute="bottom" constant="30" id="PJU-dB-Is2"/>
                                             <constraint firstAttribute="height" constant="1750" id="PV4-rF-pYq"/>
@@ -803,7 +794,7 @@
                                             <rect key="frame" x="138" y="91" width="158" height="30"/>
                                             <state key="normal" title="CONTACT ORGANIZER"/>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8012801_R_Z001A_UC1268924" translatesAutoresizingMaskIntoConstraints="NO" id="7oI-lh-0Rx">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load1" translatesAutoresizingMaskIntoConstraints="NO" id="7oI-lh-0Rx">
                                             <rect key="frame" x="20" y="14" width="110" height="106"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="106" id="39e-Uz-raX"/>
@@ -862,7 +853,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-N3-LKk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-N3-LKk">
                                 <rect key="frame" x="40" y="88" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="BVc-Hw-WXn"/>
@@ -997,7 +988,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8012801_R_Z001A_UC1268924" translatesAutoresizingMaskIntoConstraints="NO" id="gS2-b0-qKY">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load1" translatesAutoresizingMaskIntoConstraints="NO" id="gS2-b0-qKY">
                                                 <rect key="frame" x="40" y="8" width="240" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="LGe-YU-xqS"/>
@@ -1116,6 +1107,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="LiU-6L-L7n" id="mdY-Y5-8Qo"/>
                         <outlet property="descriptionLabel" destination="1SI-VX-K9j" id="OGa-bQ-HLn"/>
+                        <outlet property="imageView" destination="gS2-b0-qKY" id="eif-0W-anc"/>
                         <outlet property="locationLabel" destination="pSE-gg-cEb" id="uea-1x-WSY"/>
                         <outlet property="tableView" destination="KIk-5z-s1C" id="g0E-pz-OIK"/>
                         <outlet property="textView" destination="nWH-Ps-EZ3" id="H30-Cb-CBY"/>
@@ -1154,7 +1146,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="hRF-XN-kfg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c7u-BE-aZx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1168,10 +1160,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8012801_R_Z001A_UC1268924" width="750" height="440"/>
+        <image name="load1" width="235" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VYy-E8-u01"/>
-        <segue reference="pCz-YW-ZQa"/>
+        <segue reference="4G4-hr-zGl"/>
     </inferredMetricsTieBreakers>
 </document>
