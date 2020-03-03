@@ -79,6 +79,7 @@ class EventTableViewCell: UITableViewCell {
                         ref.child("Events/\(EventId)/People_Attending").setValue(attendancecount1)
                         self.attendance_number_label.text="ATTENDANCE:"+String(attendancecount1)
                         self.goButton.setTitle("CONFIRM ATTENDANCE", for: .normal)
+                    self.goButton.backgroundColor = UIColor.green
                         self.attendingEvent=false
                         
                     }
@@ -113,6 +114,7 @@ class EventTableViewCell: UITableViewCell {
                         ref.child("Events/\(EventId)/People_Attending").setValue(attendancecount1)
                         self.attendance_number_label.text="ATTENDANCE:"+String(attendancecount1)
                          self.goButton.setTitle("CANCEL ATTENDANCE", for: .normal)
+                         self.goButton.backgroundColor = UIColor.red
                         self.attendingEvent=true
                         
                     }

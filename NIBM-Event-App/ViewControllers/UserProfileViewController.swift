@@ -13,6 +13,7 @@ import FirebaseStorage
 
 class UserProfileViewController: UIViewController {
 
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var emaillabel: UILabel!
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,6 +21,8 @@ class UserProfileViewController: UIViewController {
         
         super.viewDidLoad()
         setLabels()
+        setButtonStyle2(button: logoutButton)
+        
      
 
         // Do any additional setup after loading the view.
@@ -33,6 +36,16 @@ class UserProfileViewController: UIViewController {
     func signOUT()
     {
         self.performSegue(withIdentifier: "backToLogin", sender: nil)
+    }
+    func setButtonStyle2(button:UIButton)
+    {
+        button.layer.cornerRadius=8.0
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.white, for: .normal)
+        
     }
     
     func display(imageString:String) {

@@ -18,7 +18,7 @@ struct KeychainConfiguration {
 
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var testlabel: UILabel!
     @IBOutlet weak var EmailTextField: UITextField!
     
@@ -36,40 +36,40 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let hasLogin = UserDefaults.standard.bool(forKey: "hasLoginKey")
-//
-//        // 2
-//        if hasLogin {
-//            loginButton.setTitle("Login", for: .normal)
-//            loginButton.tag = loginButtonTag
-//            createInfoLabel.isHidden = true
-//        } else {
-//            loginButton.setTitle("Create", for: .normal)
-//            loginButton.tag = createLoginButtonTag
-//            createInfoLabel.isHidden = false
-//        }
-//
-//        // 3
-//        if let storedUsername = UserDefaults.standard.value(forKey: "username") as? String {
-//            usernameTextField.text = storedUsername
-//        }
+        //        let hasLogin = UserDefaults.standard.bool(forKey: "hasLoginKey")
+        //
+        //        // 2
+        //        if hasLogin {
+        //            loginButton.setTitle("Login", for: .normal)
+        //            loginButton.tag = loginButtonTag
+        //            createInfoLabel.isHidden = true
+        //        } else {
+        //            loginButton.setTitle("Create", for: .normal)
+        //            loginButton.tag = createLoginButtonTag
+        //            createInfoLabel.isHidden = false
+        //        }
+        //
+        //        // 3
+        //        if let storedUsername = UserDefaults.standard.value(forKey: "username") as? String {
+        //            usernameTextField.text = storedUsername
+        //        }
         signOUT()
         setAppearance()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func LoginButtonAction(_ sender: Any) {
         //segeueToHomeVIew()
-       let emailtxt=EmailTextField.text ?? "<no_name>"
+        let emailtxt=EmailTextField.text ?? "<no_name>"
         let passwordtxt=PassWordTextField.text ?? "<no_name>"
-       checkIfEmailPresent(emailadress: emailtxt, password: passwordtxt)
+        checkIfEmailPresent(emailadress: emailtxt, password: passwordtxt)
         /*/ first this function checks if email exists .Then tne login function is called*/
     }
     
     @IBAction func ForgotPasswordAction(_ sender: Any) {
-         performSegue(withIdentifier: "forgotPasswordPath", sender: nil)
+        performSegue(withIdentifier: "forgotPasswordPath", sender: nil)
     }
     
     @IBAction func SignUpAction(_ sender: Any) {
@@ -111,13 +111,13 @@ class LoginViewController: UIViewController {
     func segeueToHomeVIew()
     {
         performSegue(withIdentifier: "seg1", sender: nil)
-    
+        
     }
     
     
     func testfunc1()
     {print("testfunc1")
-     //  testlabel.text="Email True"
+        //  testlabel.text="Email True"
         tesfunc2()
         print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     }
@@ -150,8 +150,8 @@ class LoginViewController: UIViewController {
                     }
                     print("User name is -----------------------------------00")
                     print(hh)
-               
-                     self.segeueToHomeVIew()
+                    
+                    self.segeueToHomeVIew()
                     
                 }
                 
@@ -183,7 +183,7 @@ class LoginViewController: UIViewController {
                 self.createAlert(messagestring: "The email which you enterd is incorrect. Please try again")
                 return
             }
-           
+            
             print("True Adress----ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
             self.login(email: emailadress, password: password)
             print("Block 2----ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
@@ -231,5 +231,5 @@ class LoginViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         
     }
-   
+    
 }

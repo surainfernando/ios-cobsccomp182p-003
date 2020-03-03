@@ -98,7 +98,7 @@ class EventTableTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
         let row=indexPath.row
-        self.tableView.rowHeight = 128
+        self.tableView.rowHeight = 179
         
         cell.title_label.text=tempTitle[row]
         cell.attendance_number_label.text="ATTENDANCE:"+AttendanceCount[row]
@@ -106,7 +106,8 @@ class EventTableTableViewController: UITableViewController {
         cell.organizerId=organizerID[row]
         cell.ccontactCreatorButton.addTarget(self, action: #selector(viewCreatorInfo), for: .touchUpInside)
         cell.rowNo=row
-     
+        setButtonStyle(button: cell.goButton)
+        setButtonStyle(button: cell.ccontactCreatorButton)
         
         
 
@@ -138,9 +139,11 @@ class EventTableTableViewController: UITableViewController {
             
         {cell.goButton.setTitle("CANCEL ATENDANCE", for: .normal)
             cell.attendingEvent=true
+             cell.goButton.backgroundColor = UIColor.red
         }
         else{
             cell.goButton.setTitle("CONFIRM ATTENDANCE", for: .normal)
+             cell.goButton.backgroundColor = UIColor.green
             cell.attendingEvent=false
         }
         
@@ -153,25 +156,25 @@ class EventTableTableViewController: UITableViewController {
 
         return cell
     }
-    override func tableView(_ tableView:UITableView ,
-                            trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath)->
-        UISwipeActionsConfiguration?{
-            
-            let configuration=UISwipeActionsConfiguration(actions:[
-                UIContextualAction(style:
-                    .destructive,title:"Delete",
-                                 handler:{(action,
-                                    view,completionHandler)in
-                                    let row=indexPath.row
-                                    self.attractionNames.remove(at:row)
-                                    self.attractionImages.remove(at:row )
-                                    //    self.webAddresses.remove(at:row)
-                                    completionHandler(true)
-                                    tableView.reloadData()
-                } )
-                ] )
-            return configuration
-    }
+//    override func tableView(_ tableView:UITableView ,
+//                            trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath)->
+//        UISwipeActionsConfiguration?{
+//
+//            let configuration=UISwipeActionsConfiguration(actions:[
+//                UIContextualAction(style:
+//                    .destructive,title:"Delete",
+//                                 handler:{(action,
+//                                    view,completionHandler)in
+//                                    let row=indexPath.row
+//                                    self.attractionNames.remove(at:row)
+//                                    self.attractionImages.remove(at:row )
+//                                    //    self.webAddresses.remove(at:row)
+//                                    completionHandler(true)
+//                                    tableView.reloadData()
+//                } )
+//                ] )
+//            return configuration
+//    }
     override func prepare(for segue:UIStoryboardSegue,sender:Any?) {
         if(segue.identifier=="ShowCommentSegue")
         {let CommentsViewController=segue.destination as!
@@ -336,6 +339,16 @@ class EventTableTableViewController: UITableViewController {
         
         
         
+        
+    }
+    func setButtonStyle(button:UIButton)
+    {
+        button.layer.cornerRadius=8.0
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.white, for: .normal)
         
     }
     

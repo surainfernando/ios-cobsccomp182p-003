@@ -24,6 +24,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var timerangelabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
     var commentList=[String]()
     var uidList=[String]()
@@ -48,6 +49,7 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         clearArray()
         getEventsFromFireBase()
         setlabels()
+        setButtonStyle2(button: commentButton)
        // setImage()
        
         //  label2.text=Event_ID
@@ -110,6 +112,16 @@ class CommentsViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.imageView.image=image2
             }
         }
+        
+    }
+    func setButtonStyle2(button:UIButton)
+    {
+        button.layer.cornerRadius=8.0
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.white, for: .normal)
         
     }
     
