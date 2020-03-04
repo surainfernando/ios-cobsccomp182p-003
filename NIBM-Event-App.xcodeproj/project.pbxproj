@@ -31,6 +31,7 @@
 		289D060C2403FE4600DB1C88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D060B2403FE4600DB1C88 /* LoginViewController.swift */; };
 		28A6DAB3240AB48100C6DEE3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */; };
 		28A6DAB5240AC41600C6DEE3 /* RegisterControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */; };
+		28DBFC24240F692D0087EB24 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBFC23240F692D0087EB24 /* UserDefault.swift */; };
 		28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */; };
 		28F2143F2408B8C7001ABD24 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */; };
 		846E1EB8E42AC66D56931230 /* Pods_NIBM_Event_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70DCA9DC1A1E10F7FCF8330 /* Pods_NIBM_Event_AppUITests.framework */; };
@@ -86,6 +87,7 @@
 		289D060B2403FE4600DB1C88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		28A6DAB2240AB48100C6DEE3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		28A6DAB4240AC41600C6DEE3 /* RegisterControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterControllerViewController.swift; sourceTree = "<group>"; };
+		28DBFC23240F692D0087EB24 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		28F2143C2408B8AB001ABD24 /* EventTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableTableViewController.swift; sourceTree = "<group>"; };
 		28F2143E2408B8C7001ABD24 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		363B09519DBD6D5ED578D172 /* Pods_NIBM_Event_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Event_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 			children = (
 				2808E3E624062C1700947E79 /* ImagePicker.swift */,
 				2871A149240EBE4F00A84FD9 /* KeychainPasswordItem.swift */,
+				28DBFC23240F692D0087EB24 /* UserDefault.swift */,
 			);
 			path = "Other Services";
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				289D05DA2403F8D200DB1C88 /* ViewController.swift in Sources */,
 				28F2143D2408B8AB001ABD24 /* EventTableTableViewController.swift in Sources */,
 				28A6DAB5240AC41600C6DEE3 /* RegisterControllerViewController.swift in Sources */,
+				28DBFC24240F692D0087EB24 /* UserDefault.swift in Sources */,
 				281DF83E2407C2EA00CB05F2 /* temptestViewController.swift in Sources */,
 				281C79782408C507008F4C86 /* CommentsViewController.swift in Sources */,
 				286184B3240A9D0F00DA1F84 /* ResetPasswordContrller.swift in Sources */,

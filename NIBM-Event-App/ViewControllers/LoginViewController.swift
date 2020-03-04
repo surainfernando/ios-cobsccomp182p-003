@@ -232,4 +232,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    func setUserDefaults(fname:String,lname:String,contactno:String,fb:String,image:String,email:String)
+    {
+        var defObj=UserDefault()
+      
+        
+    }
+    
 }
